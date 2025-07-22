@@ -10,14 +10,6 @@ if [ ! -d "rmw_zenoh_ws" ]; then
     cd rmw_zenoh || exit
     git checkout 65ded05
     cd ../.. || exit
-    # rosdep install need cargo, check it first
-    if command -v cargo >/dev/null 2>&1; then
-        echo "Cargo is installed: $(cargo --version)"
-    else
-        echo "Cargo is NOT installed"
-        # install rust and cargo
-        $HOME/autoware_carla_launch/script/setup/dependency_install.sh rust
-    fi
     rosdep update
     rosdep install --from-paths src --ignore-src --rosdistro humble -y
     cd .. || exit
