@@ -1,5 +1,8 @@
 #!/bin/bash
 
+source /opt/ros/humble/setup.bash
+source $HOME/autoware_carla_launch/env.sh
+
 if [ ! -d "rmw_zenoh_ws" ]; then
     mkdir rmw_zenoh_ws/src -p
     cd rmw_zenoh_ws/src || exit
@@ -7,10 +10,18 @@ if [ ! -d "rmw_zenoh_ws" ]; then
     cd rmw_zenoh || exit
     git checkout 65ded05
     cd ../.. || exit
+    # rosdep install need cargo, check it first
+    if command -v cargo >/dev/null 2>&1; then
+        echo "Cargo is installed: $(cargo --version)"
+    else
+        echo "Cargo is NOT installed"
+        # install rust and cargo
+        $HOME/autoware_carla_launch/script/setup/dependency_install.sh rust
+    fi
+    rosdep update
     rosdep install --from-paths src --ignore-src --rosdistro humble -y
     cd .. || exit
 fi
 
 cd rmw_zenoh_ws || exit
-source /opt/ros/humble/setup.bash
 colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release
