@@ -15,5 +15,5 @@ parallel --verbose --lb ::: \
                 --carla-address ${CARLA_SIMULATOR_IP} 2>&1 \
                 | tee ${LOG_PATH}/bridge.log" \
         "poetry -C ${PYTHON_AGENT_PATH} run python3 ${PYTHON_AGENT_PATH}/main.py \
-                --host ${CARLA_SIMULATOR_IP} --rolename ${VEHICLE_NAME} \
+                --host ${CARLA_SIMULATOR_IP} --rolename ${VEHICLE_NAME}  --position 158.0136,15.354725,2.0,7.903204,-92.281456,-0.000306\
                 2>&1 | tee ${LOG_PATH}/vehicle.log"

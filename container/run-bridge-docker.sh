@@ -8,5 +8,5 @@ if [ ! "$(docker images -q ${DOCKER_IMAGE})" ]; then
     docker build --network host -f ${DOCKER_FILE} -t ${DOCKER_IMAGE} .
 fi
 
-rocker --nvidia --network host --privileged --x11 --user --volume $(pwd):$HOME/autoware_carla_launch -- ${DOCKER_IMAGE}
+rocker --nvidia --network host --privileged --x11 --user --name autoware_bridge --volume $(pwd):$HOME/autoware_carla_launch -- ${DOCKER_IMAGE}
 
