@@ -10,6 +10,7 @@ if [ ! -d "rmw_zenoh_ws" ]; then
     cd rmw_zenoh || exit
     git checkout 65ded05
     cd ../.. || exit
+    sudo apt update # rosdep install need cargo install, so update first
     rosdep update
     rosdep install --from-paths src --ignore-src --rosdistro humble -y
     cd .. || exit

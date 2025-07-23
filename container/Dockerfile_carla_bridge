@@ -1,5 +1,8 @@
 FROM ghcr.io/autowarefoundation/autoware:20240903-devel-cuda-amd64
 
+ENV http_proxy http://127.0.0.1:7897
+ENV https_proxy http://127.0.0.1:7897
+
 # ROS repository key expired on 2025-06-01.
 # Workaround based on: https://github.com/osrf/docker_images/issues/807
 
