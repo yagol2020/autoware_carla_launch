@@ -14,6 +14,6 @@ parallel --verbose --lb ::: \
                 --zenoh-config ${ZENOH_CARLA_BRIDGE_CONFIG} \
                 --carla-address ${CARLA_SIMULATOR_IP} 2>&1 \
                 | tee ${LOG_PATH}/bridge.log" \
-        "poetry -C ${PYTHON_AGENT_PATH} run python3 ${PYTHON_AGENT_PATH}/main.py \
-                --host ${CARLA_SIMULATOR_IP} --rolename ${VEHICLE_NAME}  --position 101.078339,133.431702,2.0,6.854668,7.250748,0.001844 \
-                2>&1 | tee ${LOG_PATH}/vehicle.log"
+        # "poetry -C ${PYTHON_AGENT_PATH} run python3 ${PYTHON_AGENT_PATH}/main.py \
+        #         --host ${CARLA_SIMULATOR_IP} --rolename ${VEHICLE_NAME} --position 101.078339,133.431702,2.0,6.854668,7.250748,0.001844 \
+        #         2>&1 | tee ${LOG_PATH}/vehicle.log"
