@@ -14,5 +14,5 @@ if [ ! -d autoware ]; then
     git clone https://github.com/autowarefoundation/autoware.git -b ${AUTOWARE_VERSION}
 fi
 
-rocker --nvidia --privileged --x11 --user --volume $(pwd):$HOME/autoware_carla_launch -- ${DOCKER_IMAGE}
+rocker --nvidia --privileged --x11 --user --name autoware --volume $(pwd):$HOME/autoware_carla_launch -- ${DOCKER_IMAGE}
 

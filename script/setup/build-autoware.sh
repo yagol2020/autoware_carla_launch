@@ -5,6 +5,6 @@ pushd autoware
 
 mkdir -p src
 vcs import src < autoware.repos
-colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
+colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_FLAGS="--coverage" -DCMAKE_CXX_FLAGS="--coverage"
 
 popd # autoware

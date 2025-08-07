@@ -21,7 +21,7 @@ ros2 launch autoware_lidar_centerpoint lidar_centerpoint.launch.xml \
 ros2 launch autoware_lidar_transfusion lidar_transfusion.launch.xml \
         model_name:=transfusion \
         model_path:=$AUTOWARE_CARLA_ROOT/autoware_data/lidar_transfusion \
-        model_param_path:=$(ros2 pkg prefix autoware_launch --share)/config/perception/object_recognition/detection/lidar_model/transfusion.param.yaml \
+        model_param_path:=$(ros2 pkg prefix autoware_lidar_transfusion --share)/config/transfusion.param.yaml \
         build_only:=true
 
 # traffic light (car)
